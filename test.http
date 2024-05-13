@@ -1,0 +1,62 @@
+
+
+
+PUT http://192.168.44.228:9200/twitter
+Content-Type: application/json
+
+{
+    "settings": {
+        "number_of_shards": 3,
+        "number_of_replicas": 2
+    }
+}
+###
+
+DELETE http://192.168.44.229:9200/twitter
+Content-Type: application/json
+
+###
+
+GET http://192.168.44.229:9200/twitter
+Content-Type: application/json
+
+
+###
+
+PUT http://192.168.44.228:9200/twitter/_doc/0
+Content-Type: application/json
+
+{
+  "a":"a1"
+}
+
+###
+
+POST http://192.168.44.228:9200/twitter/_update/0
+Content-Type: application/json
+
+{
+  "script" : {
+    "source": "ctx._source.b = 'b2'"
+  }
+}
+
+###
+
+GET http://192.168.44.228:9200/twitter/_doc/0
+Content-Type: application/json
+
+###
+
+GET http://192.168.44.228:9200/twitter/_doc/0
+Content-Type: application/json
+
+###
+
+GET http://192.168.44.228:9200/products/_doc/bk-1
+Content-Type: application/json
+
+###
+
+GET http://192.168.44.228:9200/?pretty
+Content-Type: application/json
