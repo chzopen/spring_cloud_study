@@ -13,8 +13,6 @@
         <module>application1</module>
         <module>application2</module>
         <module>eureka1</module>
-        <module>eureka2</module>
-        <module>eureka3</module>
         <module>eurekaClient1</module>
         <module>eurekaClient2</module>
         <module>myZipkin</module>
