@@ -12,7 +12,7 @@ public class KafkaConsumerTest {
     public static void main(String[] args) {
         // 配置消费者属性
         Properties props = new Properties();
-        props.put("bootstrap.servers", "localhost:9092"); // Kafka集群地址
+        props.put("bootstrap.servers", "192.168.44.228:9092"); // Kafka集群地址
         props.put("group.id", "test-group"); // 消费者组ID
         props.put("enable.auto.commit", "true"); // 自动提交偏移量
         props.put("auto.commit.interval.ms", "1000"); // 自动提交间隔
