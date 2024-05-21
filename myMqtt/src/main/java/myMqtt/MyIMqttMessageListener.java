@@ -1,4 +1,4 @@
-package myMqtt.test;
+package myMqtt;
 
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.paho.client.mqttv3.IMqttMessageListener;
