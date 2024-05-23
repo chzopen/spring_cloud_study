@@ -1,6 +1,11 @@
 Jenkinsfile (Declarative Pipeline)
 pipeline {
     agent any
+
+    environment {
+        AAA = 'BBB'
+    }
+
     stages {
         stage('Build') {
             steps {
