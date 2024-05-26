@@ -22,8 +22,8 @@
         <module>myKafka</module>
         <module>myZipkin</module>
         <module>myJFinal</module>
-        <module>myHessianServer</module>
-        <module>myHessianClient</module>
+        <module>myHessionServer</module>
+        <module>myHessionClient</module>
         <module>myRocketMQ</module>
         <module>myMqtt</module>
     </modules>
