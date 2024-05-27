@@ -26,6 +26,9 @@
         <module>myHessionClient</module>
         <module>myRocketMQ</module>
         <module>myMqtt</module>
+        <module>myNetty</module>
+        <module>myLombok</module>
+        <module>myHTML</module>
     </modules>
 
     <properties>
@@ -304,7 +307,13 @@
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-classic</artifactId>
-                <version>1.2.3</version>
+                <version>1.2.12</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>1.2.12</version>
             </dependency>
 
         </dependencies>
