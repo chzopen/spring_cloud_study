@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
+    <groupId>com.chz</groupId>
     <artifactId>spring_cloud_study</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
@@ -18,7 +18,7 @@
         <module>gateway1</module>
         <module>myEntity</module>
         <module>myFlink</module>
-        <module>myJavaCV</module>
+<!--        <module>myJavaCV</module>-->
         <module>myKafka</module>
         <module>myZipkin</module>
         <module>myJFinal</module>
@@ -29,6 +29,8 @@
         <module>myNetty</module>
         <module>myLombok</module>
         <module>myHTML</module>
+        <module>myJavaAgent</module>
+        <module>myTest</module>
     </modules>
 
     <properties>
@@ -55,15 +57,22 @@
         <dependencies>
 
             <dependency>
-                <groupId>org.example</groupId>
+                <groupId>com.chz</groupId>
                 <artifactId>myEntity</artifactId>
                 <version>${project.version}</version>
                 <scope>compile</scope>
             </dependency>
 
             <dependency>
-                <groupId>org.example</groupId>
+                <groupId>com.chz</groupId>
                 <artifactId>myZipkin</artifactId>
+                <version>${project.version}</version>
+                <scope>compile</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.chz</groupId>
+                <artifactId>myJavaAgent</artifactId>
                 <version>${project.version}</version>
                 <scope>compile</scope>
             </dependency>
