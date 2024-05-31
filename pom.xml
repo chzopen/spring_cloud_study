@@ -10,12 +10,12 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
-        <module>application1</module>
-        <module>application2</module>
-        <module>eureka1</module>
-        <module>eurekaClient1</module>
-        <module>eurekaClient2</module>
-        <module>gateway1</module>
+        <module>myApplication1</module>
+        <module>myApplication2</module>
+        <module>myEureka1</module>
+        <module>myEurekaClient1</module>
+        <module>myEurekaClient2</module>
+        <module>myGateway1</module>
         <module>myEntity</module>
         <module>myFlink</module>
 <!--        <module>myJavaCV</module>-->
@@ -33,6 +33,7 @@
         <module>myTest</module>
         <module>myNacosServer</module>
         <module>myNacosClient</module>
+        <module>myWeb</module>
     </modules>
 
     <properties>

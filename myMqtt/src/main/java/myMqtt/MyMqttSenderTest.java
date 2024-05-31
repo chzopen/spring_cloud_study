@@ -10,7 +10,8 @@ import java.nio.charset.StandardCharsets;
 
 public class MyMqttSenderTest {
 
-    public static void main(String[] args) throws MqttException, InterruptedException {
+    public static void main(String[] args) throws MqttException, InterruptedException
+    {
         MqttConnectOptions options = new MqttConnectOptions();
         options.setUserName("admin");
         options.setPassword("Chz12313213123".toCharArray());

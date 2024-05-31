@@ -1,6 +1,5 @@
-package myRocketMQ;
+package com.chz.myApplication1.rocketmq;
 
-import com.alibaba.fastjson.JSONObject;
 import org.apache.rocketmq.client.exception.MQBrokerException;
 import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
@@ -10,42 +9,25 @@ import org.apache.rocketmq.remoting.common.RemotingHelper;
 import org.apache.rocketmq.remoting.exception.RemotingException;
 
 import java.io.UnsupportedEncodingException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class RocketMQProducerTest {
-
-    private static DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS");
-
     public static void main(String[] args) throws MQClientException, UnsupportedEncodingException, MQBrokerException, RemotingException, InterruptedException {
         // 实例化一个生产者，并设置生产组名称
         DefaultMQProducer producer = new DefaultMQProducer("my-producer-group");
-        producer.setSendMsgTimeout(15000);
+        producer.setSendMsgTimeout(5000);
         producer.setNamesrvAddr("192.168.44.228:9876");
         producer.start();
 
-        for (int i = 0; ; i++) {
-
-            JSONObject json = new JSONObject();
-            json.put("index", i);
-            json.put("sendTime", dateTimeFormatter.format(LocalDateTime.now()));
-
+        for (int i = 0; i < 100; i++) {
             // 创建一条消息，指定Topic、Tag和消息体
-            Message msg = new Message("chz_test",
-                    "tagA",
-                    "key1",
-                    json.toJSONString().getBytes(RemotingHelper.DEFAULT_CHARSET)
-            );
+            Message msg = new Message("chz_test",  "tagA", "key1", ("Hello RocketMQ " + 2).getBytes(RemotingHelper.DEFAULT_CHARSET)); // 消息内容
 
             // 发送消息，并获取发送结果
             SendResult sendResult = producer.send(msg);
-
-            System.out.println(String.format("%s, %s", new String(msg.getBody(), RemotingHelper.DEFAULT_CHARSET), sendResult));
-
-            Thread.sleep(200L);
+            System.out.printf("%s%n", sendResult);
         }
 
         // 如果不再发送消息，关闭生产者
-//        producer.shutdown();
+        producer.shutdown();
     }
 }
