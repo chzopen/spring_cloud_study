@@ -1,4 +1,4 @@
-package com.chz;
+package com.chz.myKafka;
 
 public class Main {
     public static void main(String[] args) {

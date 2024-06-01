@@ -1,4 +1,4 @@
-package com.chz.kafka;
+package com.chz.myKafka.kafka;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;

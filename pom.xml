@@ -34,6 +34,7 @@
         <module>myNacosServer</module>
         <module>myNacosClient</module>
         <module>myWeb</module>
+        <module>myYaml</module>
     </modules>
 
     <properties>
@@ -60,6 +61,30 @@
         <dependencies>
 
             <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>2.3.12.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Hoxton.SR12</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>2.2.9.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
                 <groupId>com.chz</groupId>
                 <artifactId>myEntity</artifactId>
                 <version>${project.version}</version>
@@ -80,25 +105,7 @@
                 <scope>compile</scope>
             </dependency>
 
-            <!-- spring-boot -->
-
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>2.3.12.RELEASE</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
             <!-- spring cloud -->
-
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.SR12</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
 
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -329,12 +336,12 @@
             </dependency>
 
             <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>2.2.9.RELEASE</version>
-                <type>pom</type>
-                <scope>import</scope>
+                <groupId>org.yaml</groupId>
+                <artifactId>snakeyaml</artifactId>
+                <version>1.26</version>
             </dependency>
+
+
 
         </dependencies>
     </dependencyManagement>

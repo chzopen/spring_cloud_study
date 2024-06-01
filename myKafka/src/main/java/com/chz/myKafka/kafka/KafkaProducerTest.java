@@ -1,4 +1,4 @@
-package com.chz.kafka;
+package com.chz.myKafka.kafka;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
@@ -25,9 +25,8 @@ public class KafkaProducerTest {
 
         try {
             // 发送消息
-            for (int i = 0; ; i++) {
-                ProducerRecord<String, String> record = new ProducerRecord<>("my-topic", "key-" + i, "message-" + i);
-                producer.send(record);
+            for (int i = 0; i<10; i++) {
+                ProducerRecord<String, String> record = new ProducerRecord<>("upload_from_filebeat", "key-" + i, "message-" + i);
                 Future<RecordMetadata> future = producer.send(record);
                 future.get();
                 System.out.println("Message sent: " + record);
