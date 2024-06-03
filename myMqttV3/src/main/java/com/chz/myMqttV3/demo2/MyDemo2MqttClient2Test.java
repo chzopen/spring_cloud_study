@@ -21,12 +21,5 @@ public class MyDemo2MqttClient2Test {
         client.setCallback(new MyDemo2MqttCallback(client, options, new String[]{"device/#"}));
         client.connect(options);
 
-//        for( int i=0; ; i++ ){
-//            String topic = "device2";
-//            MqttMessage mqttMessage = new MqttMessage();
-//            mqttMessage.setPayload("I am MyMqttClient2Test, at node [192.168.44.229:1883]".getBytes(StandardCharsets.UTF_8));
-//            client.publish(topic, mqttMessage);
-//            Thread.sleep(1000L);
-//        }
     }
 }

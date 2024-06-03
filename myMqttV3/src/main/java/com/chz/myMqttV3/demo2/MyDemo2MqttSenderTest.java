@@ -10,18 +10,18 @@ import java.nio.charset.StandardCharsets;
 
 public class MyDemo2MqttSenderTest {
 
-        public static void main(String[] args) throws MqttException, InterruptedException
-        {
-            MqttConnectOptions options = new MqttConnectOptions();
-            options.setUserName("admin");
-            options.setPassword("public".toCharArray());
-            options.setCleanSession(true);
-            options.setAutomaticReconnect(true);
-            options.setConnectionTimeout(20);
+    public static void main(String[] args) throws MqttException, InterruptedException
+    {
+        MqttConnectOptions options = new MqttConnectOptions();
+        options.setUserName("admin");
+        options.setPassword("public".toCharArray());
+        options.setCleanSession(true);
+        options.setAutomaticReconnect(true);
+        options.setConnectionTimeout(20);
         options.setKeepAliveInterval(10);
 
         MqttClient client = new MqttClient("tcp://192.168.44.230:1883", "MyDemo2MqttSenderTest", new MemoryPersistence());
-        client.setCallback(new MyDemo2MqttCallback(client, options, new String[]{"device/#"}));
+        client.setCallback(new MyDemo2MqttCallback(client, options, new String[]{}));
         client.connect(options);
 
         for( int i=0; ; i++ ){

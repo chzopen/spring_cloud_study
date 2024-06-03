@@ -51,16 +51,19 @@ public class MyDemo2MqttCallback implements MqttCallbackExtended {
 
     @SneakyThrows
     @Override
-    public void connectComplete(boolean reconnect, String serverURI) {
+    public void connectComplete(boolean reconnect, String serverURI)
+    {
         log.info("connectComplete: reconnect={}, serverURI={}", reconnect, serverURI);
+        if( topics.length > 0 )
+        {
+            int[] qosArr = new int[topics.length];
+            Arrays.fill(qosArr, 2);
 
-        int[] qosArr = new int[topics.length];
-        Arrays.fill(qosArr, 2);
+            MyDemo2IMqttMessageListener[] listeners = new MyDemo2IMqttMessageListener[topics.length];
+            Arrays.fill(listeners, new MyDemo2IMqttMessageListener());
 
-        MyDemo2IMqttMessageListener[] listeners = new MyDemo2IMqttMessageListener[topics.length];
-        Arrays.fill(listeners, new MyDemo2IMqttMessageListener());
-
-        client.subscribe(topics, qosArr, listeners);
+            client.subscribe(topics, qosArr, listeners);
+        }
     }
 
 }
