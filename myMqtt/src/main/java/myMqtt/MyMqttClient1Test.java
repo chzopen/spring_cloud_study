@@ -14,14 +14,14 @@ public class MyMqttClient1Test
     public static void main(String[] args) throws UnknownHostException, MqttException, InterruptedException {
         MqttConnectOptions options = new MqttConnectOptions();
         options.setUserName("admin");
-        options.setPassword("admin".toCharArray());
+        options.setPassword("public".toCharArray());
         options.setCleanSession(true);
         options.setAutomaticReconnect(true);
         options.setConnectionTimeout(20);
         options.setKeepAliveInterval(10);
 
         MqttClient client = new MqttClient("tcp://192.168.44.228:1883", "MyMqttClient1Test", new MemoryPersistence());
-        client.setCallback(new MyMqttCallback(client, options, "aaa"));
+        client.setCallback(new MyMqttCallback(client, options, new String[]{"aaa", "bbb", "ccc"}));
         client.connect(options);
 
         for (int i = 0; ; i++) {

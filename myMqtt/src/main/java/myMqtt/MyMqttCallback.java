@@ -11,13 +11,13 @@ public class MyMqttCallback implements MqttCallbackExtended {
 
     private MqttClient client;
     private MqttConnectOptions options;
-    private String topic;
+    private String[] topics;
 
-    public MyMqttCallback(MqttClient client, MqttConnectOptions options, String topic)
+    public MyMqttCallback(MqttClient client, MqttConnectOptions options, String[] topics)
     {
         this.client = client;
         this.options = options;
-        this.topic = topic;
+        this.topics = topics;
     }
 
     @SneakyThrows
@@ -53,7 +53,14 @@ public class MyMqttCallback implements MqttCallbackExtended {
     @Override
     public void connectComplete(boolean reconnect, String serverURI) {
         log.info("connectComplete: reconnect={}, serverURI={}", reconnect, serverURI);
-        client.subscribe(topic, 2, new MyIMqttMessageListener());
+
+        int[] qosArr = new int[topics.length];
+        Arrays.fill(qosArr, 2);
+
+        MyIMqttMessageListener[] listeners = new MyIMqttMessageListener[topics.length];
+        Arrays.fill(listeners, new MyIMqttMessageListener());
+
+        client.subscribe(topics, qosArr, listeners);
     }
 
 }

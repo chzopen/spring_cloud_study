@@ -8,7 +8,7 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 import java.nio.charset.StandardCharsets;
 
-public class MyMqttClient2Test {
+public class MyMqttClient3Test {
 
     public static void main(String[] args) throws MqttException, InterruptedException
     {
@@ -20,14 +20,14 @@ public class MyMqttClient2Test {
         options.setConnectionTimeout(20);
         options.setKeepAliveInterval(10);
 
-        MqttClient client = new MqttClient("tcp://192.168.44.229:1883", "MyMqttClient2Test", new MemoryPersistence());
+        MqttClient client = new MqttClient("tcp://192.168.44.230:1883", "MyMqttClient3Test", new MemoryPersistence());
         client.setCallback(new MyMqttCallback(client, options, new String[]{"aaa", "bbb", "ccc"}));
         client.connect(options);
 
         for( int i=0; ; i++ ){
-            String topic = "aaa";
+            String topic = "ccc";
             MqttMessage mqttMessage = new MqttMessage();
-            mqttMessage.setPayload("I am MyMqttClient2Test, at node [192.168.44.229:1883]".getBytes(StandardCharsets.UTF_8));
+            mqttMessage.setPayload("I am MyMqttClient3Test, at node [192.168.44.230:1883]".getBytes(StandardCharsets.UTF_8));
             client.publish(topic, mqttMessage);
             Thread.sleep(1000L);
         }
