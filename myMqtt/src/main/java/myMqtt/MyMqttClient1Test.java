@@ -9,25 +9,25 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
 
-public class MyMqttReceiverTest
+public class MyMqttClient1Test
 {
     public static void main(String[] args) throws UnknownHostException, MqttException, InterruptedException {
         MqttConnectOptions options = new MqttConnectOptions();
         options.setUserName("admin");
-        options.setPassword("Chz12313213123".toCharArray());
+        options.setPassword("admin".toCharArray());
         options.setCleanSession(true);
         options.setAutomaticReconnect(true);
         options.setConnectionTimeout(20);
         options.setKeepAliveInterval(10);
 
-        MqttClient client = new MqttClient("tcp://192.168.44.228:1883", "MyMqttReceiverTest", new MemoryPersistence());
+        MqttClient client = new MqttClient("tcp://192.168.44.228:1883", "MyMqttClient1Test", new MemoryPersistence());
         client.setCallback(new MyMqttCallback(client, options, "aaa"));
         client.connect(options);
 
         for (int i = 0; ; i++) {
             String topic = "bbb";
             MqttMessage mqttMessage = new MqttMessage();
-            mqttMessage.setPayload("this is sent by MyMqttReceiverTest".getBytes(StandardCharsets.UTF_8));
+            mqttMessage.setPayload("I am MyMqttClient1Test, at node [192.168.44.228:1883]".getBytes(StandardCharsets.UTF_8));
             client.publish(topic, mqttMessage);
             Thread.sleep(1000L);
         }

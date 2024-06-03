@@ -8,26 +8,26 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 import java.nio.charset.StandardCharsets;
 
-public class MyMqttSenderTest {
+public class MyMqttClient2Test {
 
     public static void main(String[] args) throws MqttException, InterruptedException
     {
         MqttConnectOptions options = new MqttConnectOptions();
         options.setUserName("admin");
-        options.setPassword("Chz12313213123".toCharArray());
+        options.setPassword("admin".toCharArray());
         options.setCleanSession(true);
         options.setAutomaticReconnect(true);
         options.setConnectionTimeout(20);
         options.setKeepAliveInterval(10);
 
-        MqttClient client = new MqttClient("tcp://192.168.44.228:1883", "MyMqttSenderTest", new MemoryPersistence());
+        MqttClient client = new MqttClient("tcp://192.168.44.229:1883", "MyMqttClient2Test", new MemoryPersistence());
         client.setCallback(new MyMqttCallback(client, options, "bbb"));
         client.connect(options);
 
         for( int i=0; ; i++ ){
             String topic = "aaa";
             MqttMessage mqttMessage = new MqttMessage();
-            mqttMessage.setPayload("this is sent by MyMqttReceiverTest".getBytes(StandardCharsets.UTF_8));
+            mqttMessage.setPayload("I am MyMqttClient2Test, at node [192.168.44.229:1883]".getBytes(StandardCharsets.UTF_8));
             client.publish(topic, mqttMessage);
             Thread.sleep(1000L);
         }
