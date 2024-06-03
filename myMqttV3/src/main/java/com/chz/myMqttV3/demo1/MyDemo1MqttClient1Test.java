@@ -20,7 +20,7 @@ public class MyDemo1MqttClient1Test
         options.setConnectionTimeout(20);
         options.setKeepAliveInterval(10);
 
-        MqttClient client = new MqttClient("tcp://192.168.44.228:1883", "MyMqttClient1Test", new MemoryPersistence());
+        MqttClient client = new MqttClient("tcp://192.168.44.228:1883", "MyDemo1MqttClient1Test", new MemoryPersistence());
         client.setCallback(new MyDemo1MqttCallback(client, options, new String[]{"device1", "device2", "device3"}));
         client.connect(options);
 

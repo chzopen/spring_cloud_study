@@ -20,14 +20,14 @@ public class MyDemo1MqttClient3Test {
         options.setConnectionTimeout(20);
         options.setKeepAliveInterval(10);
 
-        MqttClient client = new MqttClient("tcp://192.168.44.230:1883", "MyMqttClient3Test", new MemoryPersistence());
+        MqttClient client = new MqttClient("tcp://192.168.44.230:1883", "MyDemo1MqttClient3Test", new MemoryPersistence());
         client.setCallback(new MyDemo1MqttCallback(client, options, new String[]{"device1", "device2", "device3"}));
         client.connect(options);
 
         for( int i=0; ; i++ ){
             String topic = "device3";
             MqttMessage mqttMessage = new MqttMessage();
-            String msg = "I am MyMqttClient3Test, at node [192.168.44.230:1883]: " + (i%10);
+            String msg = "I am MyMqttClient3Test, at node [192.168.44.230:1883]: " + i;
             mqttMessage.setPayload(msg.getBytes(StandardCharsets.UTF_8));
             client.publish(topic, mqttMessage);
             Thread.sleep(10000L);

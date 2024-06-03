@@ -21,7 +21,7 @@ public class MyDemo4MqttSenderTest
         options.setConnectionTimeout(20);
         options.setKeepAliveInterval(10);
 
-        MqttClient client = new MqttClient("tcp://192.168.44.229:1883", "MyDemo4MqttSenderTest", new MemoryPersistence());
+        MqttClient client = new MqttClient("tcp://192.168.44.230:1883", "MyDemo4MqttSenderTest", new MemoryPersistence());
         client.setCallback(new MyDemo4MqttCallback(client, options, new String[]{}));
         client.connect(options);
 
@@ -29,7 +29,7 @@ public class MyDemo4MqttSenderTest
             try {
                 String topic = "device/1";
                 MqttMessage mqttMessage = new MqttMessage();
-                String msg = "I am MyMqttClient3Test, at node [192.168.44.229:1883] " + i;
+                String msg = "I am MyMqttClient3Test, at node [192.168.44.230:1883] " + i;
                 mqttMessage.setPayload(msg.getBytes(StandardCharsets.UTF_8));
                 client.publish(topic, mqttMessage);
                 System.out.println("send: " + msg);
