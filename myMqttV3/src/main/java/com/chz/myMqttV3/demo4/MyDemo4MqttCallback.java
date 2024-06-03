@@ -1,4 +1,4 @@
-package myMqtt;
+package com.chz.myMqttV3.demo4;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -7,13 +7,13 @@ import org.eclipse.paho.client.mqttv3.*;
 import java.util.Arrays;
 
 @Slf4j
-public class MyMqttCallback implements MqttCallbackExtended {
+public class MyDemo4MqttCallback implements MqttCallbackExtended {
 
     private MqttClient client;
     private MqttConnectOptions options;
     private String[] topics;
 
-    public MyMqttCallback(MqttClient client, MqttConnectOptions options, String[] topics)
+    public MyDemo4MqttCallback(MqttClient client, MqttConnectOptions options, String[] topics)
     {
         this.client = client;
         this.options = options;
@@ -57,10 +57,13 @@ public class MyMqttCallback implements MqttCallbackExtended {
         int[] qosArr = new int[topics.length];
         Arrays.fill(qosArr, 2);
 
-        MyIMqttMessageListener[] listeners = new MyIMqttMessageListener[topics.length];
-        Arrays.fill(listeners, new MyIMqttMessageListener());
+        MyDemo4IMqttMessageListener[] listeners = new MyDemo4IMqttMessageListener[topics.length];
+        Arrays.fill(listeners, new MyDemo4IMqttMessageListener());
 
-        client.subscribe(topics, qosArr, listeners);
+        if( topics.length > 0 ){
+            client.subscribe(topics, qosArr, listeners);
+        }
+
     }
 
 }

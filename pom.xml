@@ -25,7 +25,8 @@
         <module>myHessionServer</module>
         <module>myHessionClient</module>
         <module>myRocketMQ</module>
-        <module>myMqtt</module>
+        <module>myMqttV3</module>
+        <module>myMqttV5</module>
         <module>myNetty</module>
         <module>myLombok</module>
         <module>myHTML</module>

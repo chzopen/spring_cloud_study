@@ -1,11 +1,11 @@
-package myMqtt;
+package com.chz.myMqttV3.demo2;
 
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.paho.client.mqttv3.IMqttMessageListener;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 
 @Slf4j
-public class MyIMqttMessageListener implements IMqttMessageListener
+public class MyDemo2IMqttMessageListener implements IMqttMessageListener
 {
     @Override
     public void messageArrived(String topic, MqttMessage message) {
