@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chz.myShardingSphere.persistence.mapper.OrdersMapper">
+
+    <resultMap id="orders" type="com.chz.myShardingSphere.persistence.po.Orders">
+        <id column="id" property="id" />
+        <result column="orderType" property="order_type" />
+        <result column="customerId" property="customer_id" />
+        <result column="amount" property="amount" />
+    </resultMap>
+
+    <select id="testSelect" parameterType="long" resultMap="orders">
+        SELECT *
+        FROM orders
+        WHERE customer_id = #{customerId}
+    </select>
+
+</mapper>
+

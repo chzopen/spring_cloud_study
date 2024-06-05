@@ -1,0 +1,72 @@
+{
+  "Name": "test1",
+  "Comment": "test1",
+  "StartState": "stat1",
+  "Version": "0.0.1",
+  "States": {
+    "test1": {
+      "Type": "ServiceTask",
+      "ServiceName": "testService",
+      "ServiceMethod": "test1",
+      "CompensateState": "test1Compensate",
+      "Next": "test2",
+      "Input": [
+        "$.[p1]",
+        "$.[p2]"
+      ],
+      "Output": {
+        "result1": "$.#root"
+      },
+      "Status": {
+        "#root == true": "SU",
+        "#root == false": "FA",
+        "$Exception{java.lang.Throwable}": "UN"
+      }
+    },
+    "test2": {
+      "Type": "ServiceTask",
+      "ServiceName": "testService",
+      "ServiceMethod": "test2",
+      "CompensateState": "test2Compensate",
+      "Next": "test2",
+      "Input": [
+        "$.[p1]",
+        "$.[p2]"
+      ],
+      "Output": {
+        "result1": "$.#root"
+      },
+      "Status": {
+        "#root == true": "SU",
+        "#root == false": "FA",
+        "$Exception{java.lang.Throwable}": "UN"
+      }
+    },
+    "test1Compensate": {
+      "Type": "ServiceTask",
+      "ServiceName": "testService",
+      "ServiceMethod": "test1Compensate",
+      "Input": [
+        "$.[p1]",
+        "$.[p2]"
+      ]
+    },
+    "test2Compensate": {
+      "Type": "ServiceTask",
+      "ServiceName": "testService",
+      "ServiceMethod": "test2Compensate",
+      "Input": [
+        "$.[p1]",
+        "$.[p2]"
+      ]
+    },
+    "Succeed": {
+      "Type": "Succeed"
+    },
+    "Fail": {
+      "Type": "Fail",
+      "ErrorCode": "PURCHASE_FAILED",
+      "Message": "purchase failed"
+    }
+  }
+}

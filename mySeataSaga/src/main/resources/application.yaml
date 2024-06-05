@@ -1,0 +1,15 @@
+
+
+
+spring.datasource.schema: classpath:sql/h2_init.sql
+# spring.datasource.data:  classpath:data.sql
+
+
+
+
+
+
+
+
+
+

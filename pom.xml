@@ -37,6 +37,8 @@
         <module>myWeb</module>
         <module>myYaml</module>
         <module>myTcc</module>
+        <module>mySeataSaga</module>
+        <module>myShardingSphere</module>
     </modules>
 
     <properties>
