@@ -5,7 +5,6 @@ import com.chz.myTcc.feign.Test3FeignClient;
 import lombok.extern.slf4j.Slf4j;
 import org.mengyun.tcctransaction.api.Compensable;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,7 +28,7 @@ public class Test1Controller {
         log.info("Test1Controller::test1Success");
         test2FeignClient.test1Success(p1);
         test3FeignClient.test1Success(p1);
-        return "test1: success";
+        return "test1Success: success";
     }
 
     @RequestMapping(value = "/test1Fail", method = RequestMethod.GET)
@@ -38,7 +37,7 @@ public class Test1Controller {
     {
         log.info("Test1Controller::test1Fail");
         test2FeignClient.test1Success(p1);
-        test3FeignClient.test1Fail(p1);
+        test3FeignClient.test1Success(p1);
         throw new RuntimeException("test1Fail");
     }
 
@@ -49,8 +48,8 @@ public class Test1Controller {
     {
         log.info("Test1Controller::test2Fail");
         test2FeignClient.test1Success(p1);
-        test3FeignClient.test1Success(p1);
-        throw new RuntimeException("test2Fail");
+        test3FeignClient.test1Fail(p1);
+        return "test2Fail: success";
     }
 
     public void testConfirm(@RequestParam("p1")String p1)
