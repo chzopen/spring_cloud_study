@@ -1,55 +1,23 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: app-log-logfile
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      project: microservice
-      app: nginx-logfile
-  template:
-    metadata:
-      labels:
-        project: microservice
-        app: nginx-logfile
-    spec:
-      containers:
-        # 应用容器
-        - name: nginx
-          image: lizhenliang/nginx-php
-          # 将数据卷挂载到日志目录
-          volumeMounts:
-            - name: nginx-logs
-              mountPath: /usr/local/nginx/logs
-        # 日志采集器容器
-        - name: filebeat
-          image: elastic/filebeat:7.9.2
-          args: [
-            "-c", "/etc/filebeat.yml",
-            "-e",
-          ]
-          args2: []
-          resources:
-            requests:
-              cpu: 100m
-              memory: 100Mi
-            limits:
-              memory: 500Mi
-          securityContext:
-            runAsUser: 0
-          volumeMounts:
-            # 挂载filebeat配置文件
-            - name: filebeat-config
-              mountPath: /etc/filebeat.yml
-              subPath: filebeat.yml
-            # 将数据卷挂载到日志目录
-            - name: nginx-logs
-              mountPath: /usr/local/nginx/logs
-      # 数据卷共享日志目录
-      volumes:
-        - name: nginx-logs
-          emptyDir: {}
-        - name: filebeat-config
-          configMap:
-            name: filebeat-nginx-config
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: myTcc
+  tcc:
+    storage:
+      storage-type: remoting
+      domain: "TCC:FEIGN:CAPITAL"
+    recovery:
+      recovery-enabled: false
+    registry:
+      registry-type: direct
+      cluster-name: default
+      direct:
+        server-addresses: 192.168.44.228:2332
+server:
+  port: 8082
+  servlet:
+    context-path: /myTcc
+logging:
+  level:
+    root: info

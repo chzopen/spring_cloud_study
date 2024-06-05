@@ -1,0 +1,15 @@
+
+server.port: 8082
+spring.application.name: myTcc
+server.servlet.context-path: /myTcc
+
+spring.main.allow-bean-definition-overriding: true
+
+spring.tcc.storage.storage-type: remoting
+spring.tcc.storage.domain: TCC:FEIGN:CAPITAL
+
+spring.tcc.recovery.recovery-enabled: false
+spring.tcc.registry.registry-type: direct
+spring.tcc.registry.cluster-name: default
+spring.tcc.registry.direct.server-addresses: 192.168.44.228:2332
+

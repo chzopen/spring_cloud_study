@@ -36,6 +36,7 @@
         <module>myNacosClient</module>
         <module>myWeb</module>
         <module>myYaml</module>
+        <module>myTcc</module>
     </modules>
 
     <properties>
