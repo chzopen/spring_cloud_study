@@ -27,9 +27,9 @@ public class TestService {
     }
 
     @Transactional
-    public List<Orders> testSelect()
+    public List<Orders> testSelectOrder(Long customerId)
     {
-        List<Orders> orders = ordersMapper.testSelect(1L);
+        List<Orders> orders = ordersMapper.testSelectOrder(customerId);
         return orders;
     }
 

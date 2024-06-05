@@ -33,8 +33,10 @@ public class TestController {
     }
 
     @GetMapping("/testSelectOrder")
-    public String testSelectOrder() {
-        List<Orders> orders = testService.testSelect();
+    public String testSelectOrder(
+            @RequestParam(value = "customerId", required = false) Long customerId
+    ) {
+        List<Orders> orders = testService.testSelectOrder(customerId);
         return JSON.toJSONString(orders);
     }
 

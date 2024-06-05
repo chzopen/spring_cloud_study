@@ -13,6 +13,6 @@ import java.util.List;
 public interface OrdersMapper extends BaseMapper<Orders>
 {
 
-    List<Orders> testSelect(@Param("customerId") Long customerId);
+    List<Orders> testSelectOrder(@Param("customerId") Long customerId);
 
 }

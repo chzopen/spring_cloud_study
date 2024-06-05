@@ -9,10 +9,16 @@
         <result column="amount" property="amount" />
     </resultMap>
 
-    <select id="testSelect" parameterType="long" resultMap="orders">
+    <select id="testSelectOrder" parameterType="long" resultMap="orders">
         SELECT *
         FROM orders
-        WHERE customer_id = #{customerId}
+        <where>
+            <if test="customerId!=null">
+                and customer_id = #{customerId}
+            </if>
+        </where>
+        order by id
+        LIMIT 10 OFFSET 0
     </select>
 
 </mapper>
