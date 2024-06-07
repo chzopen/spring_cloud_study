@@ -16,6 +16,7 @@ public class MyServerChannelInBoundHandler extends SimpleChannelInboundHandler<S
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
         log.info("MyChannelInBoundHandler.channelReadComplete[" + ctx.channel().remoteAddress() + "]");
+//        ctx.channel().eventLoop().execute();
         super.channelReadComplete(ctx);
     }
 

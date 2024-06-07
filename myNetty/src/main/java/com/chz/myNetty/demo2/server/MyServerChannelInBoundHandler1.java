@@ -25,6 +25,13 @@ public class MyServerChannelInBoundHandler1 extends SimpleChannelInboundHandler<
         log.info("MyServerChannelInBoundHandler1.channelRead0[" + ctx.channel().remoteAddress() + "]:" + charSequence1);
         ByteBuf wbuf = Unpooled.copiedBuffer(charSequence1, StandardCharsets.UTF_8);
         ctx.writeAndFlush(wbuf);
+
+        ctx.channel().eventLoop().execute(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        });
     }
 
     @Override

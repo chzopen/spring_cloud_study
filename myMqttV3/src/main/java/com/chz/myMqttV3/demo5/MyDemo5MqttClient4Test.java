@@ -7,7 +7,8 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 public class MyDemo5MqttClient4Test
 {
-    public static void main(String[] args) throws  MqttException {
+    public static void main(String[] args) throws  MqttException
+    {
         MqttConnectOptions options = new MqttConnectOptions();
         options.setUserName("admin");
         options.setPassword("public".toCharArray());
