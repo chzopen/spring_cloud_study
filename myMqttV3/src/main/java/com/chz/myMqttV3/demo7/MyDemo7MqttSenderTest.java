@@ -19,7 +19,7 @@ public class MyDemo7MqttSenderTest
         options.setAutomaticReconnect(true);
         options.setConnectionTimeout(20);
         options.setKeepAliveInterval(10);
-        // 这里设置遗嘱消息
+        // 这里设置遗嘱消息，当broker认为本client断联时会将遗嘱消息发出，可以用来确认borker是否认为本client已经断联
         options.setWill("device/1", "I am MyDemo7MqttSenderTest, I am dead!!!".getBytes(), 1, false);
 
         MqttClient client = new MqttClient("tcp://192.168.44.228:1883", "MyDemo7MqttSenderTest", new MemoryPersistence());
@@ -34,7 +34,7 @@ public class MyDemo7MqttSenderTest
             mqttMessage.setPayload(msg.getBytes(StandardCharsets.UTF_8));
             client.publish(topic, mqttMessage);
             System.out.println("send: " + msg);
-            Thread.sleep(1000L);
+            Thread.sleep(1000L);    // 测试运行的时候在这里加入断点，卡住MqttClient内部自动发的PINGREQ消息
         }
     }
 }
