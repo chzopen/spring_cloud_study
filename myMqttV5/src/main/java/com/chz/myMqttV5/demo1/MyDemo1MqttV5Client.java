@@ -17,7 +17,6 @@ public class MyDemo1MqttV5Client {
 
     public static void main(String[] args) throws InterruptedException {
         String broker = "tcp://192.168.44.228:1883";
-        String topic = "topic/test";
         int subQos = 1;
         int pubQos = 1;
         String msg;
@@ -27,13 +26,13 @@ public class MyDemo1MqttV5Client {
             MqttConnectionOptions options = new MqttConnectionOptions();
             client.setCallback(new MyMqttCallback(clientId));
             client.connect(options);
-            client.subscribe(topic, subQos);
+            client.subscribe("device/#", subQos);
 
             for(int i=0; i<100; i++){
                 msg = "I am "+clientId+":" + i;
                 MqttMessage message = new MqttMessage(msg.getBytes());
                 message.setQos(pubQos);
-                client.publish(topic, message);
+                client.publish("device/1", message);
                 Thread.sleep(3000L);
             }
 
