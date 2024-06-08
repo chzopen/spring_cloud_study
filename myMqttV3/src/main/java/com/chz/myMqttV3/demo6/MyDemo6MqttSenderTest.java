@@ -20,9 +20,9 @@ public class MyDemo6MqttSenderTest
         options.setConnectionTimeout(20);
         options.setKeepAliveInterval(10);
         // 这里设置遗嘱消息
-        options.setWill("device/1", "I am device/1, I am dead!!!".getBytes(), 1, false);
+        options.setWill("device/1", "I am MyDemo6MqttSenderTest, I am dead!!!".getBytes(), 1, false);
 
-        MqttClient client = new MqttClient("tcp://192.168.44.228:1883", "MyDemo5MqttSenderTest", new MemoryPersistence());
+        MqttClient client = new MqttClient("tcp://192.168.44.228:1883", "MyDemo6MqttSenderTest", new MemoryPersistence());
         client.setCallback(new MyDemo6MqttCallback(client, options, new String[]{}));
         client.connect(options);
     }
