@@ -1,16 +1,18 @@
-package com.chz.myMqttV5.demo1;
+package com.chz.myMqttV5.demo2;
 
 import lombok.extern.slf4j.Slf4j;
-import org.eclipse.paho.mqttv5.client.*;
+import org.eclipse.paho.mqttv5.client.MqttClient;
+import org.eclipse.paho.mqttv5.client.MqttConnectionOptions;
 import org.eclipse.paho.mqttv5.common.MqttException;
 import org.eclipse.paho.mqttv5.common.MqttMessage;
 
 @Slf4j
-public class MyDemo1MqttV5Sender {
+public class MyDemo2MqttV5Sender {
+
+    private static String clientId = MyDemo2MqttV5Sender.class.getSimpleName();
 
     public static void main(String[] args) throws InterruptedException {
         String broker = "tcp://192.168.44.228:1883";
-        String clientId = "MyDemo1MqttV5Sender";
         int subQos = 1;
         int pubQos = 1;
         String msg;
@@ -18,7 +20,7 @@ public class MyDemo1MqttV5Sender {
         try {
             MqttClient client = new MqttClient(broker, clientId);
             MqttConnectionOptions options = new MqttConnectionOptions();
-            client.setCallback(new MyDemo1MqttCallback(clientId));
+            client.setCallback(new MyDemo2MqttCallback(clientId));
             client.connect(options);
             client.subscribe("device/#", subQos);
 

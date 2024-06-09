@@ -1,14 +1,10 @@
 package com.chz.myMqttV5.demo1;
 
 import lombok.extern.slf4j.Slf4j;
-import org.eclipse.paho.mqttv5.client.IMqttToken;
-import org.eclipse.paho.mqttv5.client.MqttCallback;
 import org.eclipse.paho.mqttv5.client.MqttClient;
 import org.eclipse.paho.mqttv5.client.MqttConnectionOptions;
-import org.eclipse.paho.mqttv5.client.MqttDisconnectResponse;
 import org.eclipse.paho.mqttv5.common.MqttException;
 import org.eclipse.paho.mqttv5.common.MqttMessage;
-import org.eclipse.paho.mqttv5.common.packet.MqttProperties;
 
 @Slf4j
 public class MyDemo1MqttV5Client {
@@ -24,7 +20,7 @@ public class MyDemo1MqttV5Client {
         try {
             MqttClient client = new MqttClient(broker, clientId);
             MqttConnectionOptions options = new MqttConnectionOptions();
-            client.setCallback(new MyMqttCallback(clientId));
+            client.setCallback(new MyDemo1MqttCallback(clientId));
             client.connect(options);
             client.subscribe("device/#", subQos);
 

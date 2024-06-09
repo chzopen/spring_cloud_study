@@ -9,11 +9,11 @@ import org.eclipse.paho.mqttv5.common.MqttMessage;
 import org.eclipse.paho.mqttv5.common.packet.MqttProperties;
 
 @Slf4j
-public class MyMqttCallback implements MqttCallback
+public class MyDemo1MqttCallback implements MqttCallback
 {
     private String clientId;
 
-    public MyMqttCallback(String clientId)
+    public MyDemo1MqttCallback(String clientId)
     {
         this.clientId = clientId;
     }
