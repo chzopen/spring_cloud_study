@@ -41,6 +41,7 @@
         <module>myShardingSphere</module>
         <module>myWebFlux</module>
         <module>myReactor</module>
+        <module>myCoap</module>
     </modules>
 
     <properties>

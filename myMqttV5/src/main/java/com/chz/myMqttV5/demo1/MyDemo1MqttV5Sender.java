@@ -23,11 +23,11 @@ public class MyDemo1MqttV5Sender {
             client.connect(options);
             client.subscribe("device/#", subQos);
 
-            for(int i=0; i<100; i++){
-                msg = "I am "+clientId+":" + i;
+            for(int i=0; i<10000; i++){
+                msg = "I am "+clientId+":" + i + "\r\n";
                 MqttMessage message = new MqttMessage(msg.getBytes());
                 message.setQos(pubQos);
-                client.publish("device/2", message);
+                client.publish("server/1", message);
                 Thread.sleep(3000L);
             }
 
