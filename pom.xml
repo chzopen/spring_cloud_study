@@ -12,7 +12,7 @@
     <modules>
         <module>myApplication1</module>
         <module>myApplication2</module>
-        <module>myEureka1</module>
+        <module>myEureka</module>
         <module>myEurekaClient1</module>
         <module>myEurekaClient2</module>
         <module>myGateway1</module>
@@ -45,6 +45,7 @@
         <module>myMyBatisPlus</module>
         <module>mySwagger</module>
         <module>myJSqlParser</module>
+        <module>myFeignClient</module>
     </modules>
 
     <properties>

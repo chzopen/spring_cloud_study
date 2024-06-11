@@ -1,4 +1,4 @@
-package com.chz.eureka1;
+package com.chz.myEureka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,9 +6,9 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 @EnableEurekaServer
 @SpringBootApplication
-public class Eureka1Main {
+public class MyEurekaTest {
 
     public static void main(String[] args) {
-        SpringApplication.run(Eureka1Main.class, args);
+        SpringApplication.run(MyEurekaTest.class, args);
     }
 }
