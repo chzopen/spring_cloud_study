@@ -42,6 +42,8 @@
         <module>myWebFlux</module>
         <module>myReactor</module>
         <module>myCoap</module>
+        <module>myMyBatisPlus</module>
+        <module>mySwagger</module>
     </modules>
 
     <properties>

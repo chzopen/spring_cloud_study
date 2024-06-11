@@ -14,7 +14,7 @@ public class MyDemo1CoapClientTest {
 
 	private static String name = MyDemo1CoapClientTest.class.getSimpleName();
 
-	public static void main(String[] args) throws URISyntaxException, IOException {
+	public static void main(String[] args) throws URISyntaxException, IOException, InterruptedException {
 
 		URI uri = new URI("coap://localhost:5683/get_hello");
 		CoapClient client = new CoapClient(uri);
@@ -25,6 +25,8 @@ public class MyDemo1CoapClientTest {
 			log.info("responseText: {}", response.getResponseText());
 		}
 
+		Thread.sleep(1000L);
+
 		URI uri2 = new URI("coap://localhost:5683/post_hello");
 		CoapClient client2 = new CoapClient(uri2);
 		String payload = "I am "+name;
@@ -34,6 +36,8 @@ public class MyDemo1CoapClientTest {
 			log.info("options: {}", response2.getOptions());
 			log.info("responseText: {}", response2.getResponseText());
 		}
+
+		Thread.sleep(1000L);
 
 		URI uri3 = new URI("coap://localhost:5683/time");
 		CoapClient client3 = new CoapClient(uri3);
