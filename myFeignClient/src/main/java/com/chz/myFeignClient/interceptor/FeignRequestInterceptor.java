@@ -10,6 +10,7 @@ public class FeignRequestInterceptor implements RequestInterceptor
     @Override
     public void apply(RequestTemplate template)
     {
+        // 这里给每一个FeignClient的调用增加一个header
         template.header("chz-new-header", "just-for-test");
     }
 }
