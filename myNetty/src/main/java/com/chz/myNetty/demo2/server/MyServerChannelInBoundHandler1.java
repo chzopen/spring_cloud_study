@@ -6,8 +6,9 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
 
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.util.Objects;
+import java.util.concurrent.atomic.AtomicLong;
 
 @Slf4j
 public class MyServerChannelInBoundHandler1 extends SimpleChannelInboundHandler<ByteBuf>
@@ -24,12 +25,26 @@ public class MyServerChannelInBoundHandler1 extends SimpleChannelInboundHandler<
         CharSequence charSequence1 = msg.readCharSequence(msg.readableBytes(), StandardCharsets.UTF_8);
         log.info("MyServerChannelInBoundHandler1.channelRead0[" + ctx.channel().remoteAddress() + "]:" + charSequence1);
         ByteBuf wbuf = Unpooled.copiedBuffer(charSequence1, StandardCharsets.UTF_8);
-        ctx.writeAndFlush(wbuf);
+
+        AtomicLong tid1 = new AtomicLong(Thread.currentThread().getId());
+        AtomicLong tid2 = new AtomicLong();
 
         ctx.channel().eventLoop().execute(new Runnable() {
             @Override
             public void run() {
-
+                try {
+                    tid2.set(Thread.currentThread().getId());
+                    if( Objects.equals(tid1.get(), tid2.get()) ){
+                        log.info("equals(tid1, tid2)");
+                    } else {
+                        log.info("not equals(tid1, tid2)");
+                    }
+                    log.info("channelRead0, runnable 1: start, tid2={}", tid2.get());
+                    Thread.sleep(1000L);
+                    ctx.writeAndFlush(wbuf);
+                    log.info("channelRead0, runnable 1: end, tid2={}", tid2.get());
+                } catch (InterruptedException e) {
+                }
             }
         });
     }

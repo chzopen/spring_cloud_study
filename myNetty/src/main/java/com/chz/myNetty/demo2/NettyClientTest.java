@@ -25,7 +25,7 @@ public class NettyClientTest
                     .handler(new MyClientChannelInitializer());
 
             List<Channel> channels = new ArrayList<>();
-            for( int i=0; i<60000; i++ ){
+            for( int i=0; i<10000; i++ ){
                 log.info("count: {}", i);
                 channels.add(bootstrap.connect("localhost", 8080).sync().channel());
             }
@@ -60,11 +60,13 @@ public class NettyClientTest
             int seq = 0;
             while(true){
                 try {
-                    Thread.sleep(1000L);
+                    Thread.sleep(1L);
 
                     int index = random.nextInt(channels.size());
                     Channel channel = channels.get(index);
-                    channel.pipeline().writeAndFlush(""+(seq++));
+                    String msg = index + ": "+(seq++)+"\r\n";
+                    log.info("send content: {}", msg);
+                    channel.pipeline().writeAndFlush(msg);
 
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
