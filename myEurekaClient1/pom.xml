@@ -38,10 +38,10 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.chz</groupId>
-            <artifactId>myZipkin</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.chz</groupId>-->
+<!--            <artifactId>myZipkin</artifactId>-->
+<!--        </dependency>-->
 
     </dependencies>
 
