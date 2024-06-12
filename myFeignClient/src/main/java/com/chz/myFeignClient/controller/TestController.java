@@ -17,6 +17,7 @@ public class TestController {
 
     @GetMapping("/test")
     public String test() {
+        log.info("TestController::test: tid:{}", Thread.currentThread().getId());
         return testBaiduFeignClient.testGet();
     }
 
