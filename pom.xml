@@ -46,6 +46,8 @@
         <module>mySwagger</module>
         <module>myJSqlParser</module>
         <module>myFeignClient</module>
+        <module>myBeanMain</module>
+        <module>myBeanBranch</module>
     </modules>
 
     <properties>
@@ -146,6 +148,13 @@
             <dependency>
                 <groupId>com.chz</groupId>
                 <artifactId>myJavaAgent</artifactId>
+                <version>${project.version}</version>
+                <scope>compile</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.chz</groupId>
+                <artifactId>myBeanBranch</artifactId>
                 <version>${project.version}</version>
                 <scope>compile</scope>
             </dependency>
