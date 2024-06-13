@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/main")
 public class MainController {
 
-    @Autowired
+    @Autowired(required = false)
     private MainBean mainBean;
 
     @GetMapping("/notAnnotatedBean")

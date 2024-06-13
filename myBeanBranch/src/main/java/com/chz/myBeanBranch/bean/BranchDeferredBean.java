@@ -10,14 +10,20 @@ import javax.annotation.PostConstruct;
 @Getter
 @Setter
 // 被【ImportSelector】指过来的类不需要添加【@Component】
-public class BranchBean {
+public class BranchDeferredBean {
 
     private String name;
+
+    public BranchDeferredBean()
+    {
+        log.info("chz >>> BranchDeferredBean.<init>()");
+    }
 
     @PostConstruct
     public void init()
     {
-        name = "BranchBeanName put in from @PostConstruct";
+        log.info("chz >>> BranchDeferredBean.init()");
+        name = "【BranchDeferredBean put in from @PostConstruct】";
     }
 
 }
