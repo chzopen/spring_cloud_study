@@ -12,8 +12,9 @@ public class FeignRequestInterceptor implements RequestInterceptor
     @Override
     public void apply(RequestTemplate template)
     {
+        String token = HystrixRequestContextUtils.TOKEN.get();
         // 这里给每一个FeignClient的调用增加一个header
-        log.info("FeignRequestInterceptor::apply: tid:{}", Thread.currentThread().getId());
+        log.info("FeignRequestInterceptor::apply: tid:{}, token={}", Thread.currentThread().getId(), token);
         template.header("chz-new-header", "just-for-test");
     }
 }

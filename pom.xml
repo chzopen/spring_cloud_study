@@ -48,6 +48,8 @@
         <module>myFeignClient</module>
         <module>myBeanMain</module>
         <module>myBeanBranch</module>
+        <module>myJWT</module>
+        <module>mySpringSecurity</module>
     </modules>
 
     <properties>
@@ -393,6 +395,12 @@
                 <groupId>org.yaml</groupId>
                 <artifactId>snakeyaml</artifactId>
                 <version>1.26</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.auth0</groupId>
+                <artifactId>java-jwt</artifactId>
+                <version>3.19.1</version>
             </dependency>
 
 <!--            <dependency>-->
