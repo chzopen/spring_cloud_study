@@ -10,31 +10,31 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class TestService {
+public class TestOrdersService {
 
     @Autowired
     private OrdersMapper ordersMapper;
 
     @Transactional
-    public void testAddOrder(long id)
+    public void addOrder(Long id, Long customerId, String orderType, Double amount)
     {
         Orders orders = new Orders();
         orders.setId(id);
-        orders.setCustomerId(id);
-        orders.setOrderType(id);
-        orders.setAmount((double)id);
+        orders.setCustomerId(customerId);
+        orders.setOrderType(orderType);
+        orders.setAmount(amount);
         ordersMapper.insert(orders);
     }
 
     @Transactional
-    public List<Orders> testSelectOrder(Long customerId)
+    public List<Orders> selectOrder(Long customerId, Long orderId)
     {
-        List<Orders> orders = ordersMapper.testSelectOrder(customerId);
+        List<Orders> orders = ordersMapper.selectOrder(customerId, orderId);
         return orders;
     }
 
     @Transactional
-    public void testDeleteOrder()
+    public void deleteOrder()
     {
         LambdaQueryWrapper<Orders> queryWrapper = new LambdaQueryWrapper<>();
         ordersMapper.delete(queryWrapper);

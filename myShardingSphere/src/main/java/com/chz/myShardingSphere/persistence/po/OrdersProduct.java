@@ -5,20 +5,22 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Orders {
+public class OrdersProduct {
 
     private Long id;
-    private String orderType;
     private Long customerId;
-    private Double amount;
+    private Long orderId;
+    private Long orderType;
+    private Long productId;
 
     @Override
     public String toString() {
-        return "Orders{" +
+        return "OrdersDetail{" +
                 "id=" + id +
-                ", orderType=" + orderType +
                 ", customerId=" + customerId +
-                ", amount=" + amount +
+                ", orderId=" + orderId +
+                ", orderType=" + orderType +
+                ", productId=" + productId +
                 '}';
     }
 

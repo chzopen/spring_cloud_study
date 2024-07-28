@@ -50,6 +50,7 @@
         <module>myBeanBranch</module>
         <module>myJWT</module>
         <module>mySpringSecurity</module>
+        <module>myElasticSearch</module>
     </modules>
 
     <properties>

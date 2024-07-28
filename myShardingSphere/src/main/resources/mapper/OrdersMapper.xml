@@ -9,10 +9,13 @@
         <result column="amount" property="amount" />
     </resultMap>
 
-    <select id="testSelectOrder" parameterType="long" resultMap="orders">
+    <select id="selectOrder" parameterType="long" resultMap="orders">
         SELECT *
         FROM orders
         <where>
+            <if test="orderId!=null">
+                and id = #{orderId}
+            </if>
             <if test="customerId!=null">
                 and customer_id = #{customerId}
             </if>
