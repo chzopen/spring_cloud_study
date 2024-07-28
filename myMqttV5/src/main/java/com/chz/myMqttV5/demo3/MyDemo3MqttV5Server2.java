@@ -23,7 +23,7 @@ public class MyDemo3MqttV5Server2
             MqttClient client = new MqttClient(broker, clientId);
             MqttConnectionOptions options = new MqttConnectionOptions();
             options.setAutomaticReconnect(true);
-            options.setKeepAliveInterval(3);
+            options.setKeepAliveInterval(3);        // keepAliveInterval设置成3秒
             client.setCallback(new MyDemo3Server2Callback(clientId, client));
             client.connect(options);
 
@@ -47,7 +47,9 @@ public class MyDemo3MqttV5Server2
         public void connectComplete(boolean reconnect, String serverURI) {
             log.info("{}::connectComplete, reconnect={}, serverURI={}", clientId, reconnect, serverURI);
             try {
-                client.subscribe("$share/demo3/device/#", subQos);
+                if( client.isConnected() ){
+                    client.subscribe("$share/demo3/device/#", subQos);
+                }
             } catch (MqttException e) {
                 log.error("err", e);
             }
@@ -63,9 +65,10 @@ public class MyDemo3MqttV5Server2
 
         public void messageArrived(String topic, MqttMessage message) throws Exception {
             log.info("{}::messageArrived start, topic={}, qos={}, message={}", clientId, topic, message.getQos(), new String(message.getPayload()));
-            if( ThreadLocalRandom.current().nextInt() % 10 ==0 ){
+            if( ThreadLocalRandom.current().nextInt() % 20 ==0 ){
                 try {
                     log.info("{}::messageArrived ------------error1, topic={}, qos={}, message={}", clientId, topic, message.getQos(), new String(message.getPayload()));
+                    // 休眠10秒，因为前面设置了keepAliveInterval为3秒，所以一定会导致连接断开
                     Thread.sleep(10000);
                     log.info("{}::messageArrived ------------error2, topic={}, qos={}, message={}", clientId, topic, message.getQos(), new String(message.getPayload()));
                 } catch (Exception e) {
