@@ -10,47 +10,51 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
-        <module>myApplication1</module>
-        <module>myApplication2</module>
-        <module>myEureka</module>
-        <module>myEurekaClient1</module>
-        <module>myEurekaClient2</module>
-        <module>myGateway1</module>
-        <module>myEntity</module>
-        <module>myFlink</module>
+<!--        <module>myApplication1</module>-->
+<!--        <module>myApplication2</module>-->
+<!--        <module>myEureka</module>-->
+<!--        <module>myEurekaClient1</module>-->
+<!--        <module>myEurekaClient2</module>-->
+<!--        <module>myGateway1</module>-->
+<!--        <module>myEntity</module>-->
+<!--        <module>myFlink</module>-->
 <!--        <module>myJavaCV</module>-->
-        <module>myKafka</module>
-        <module>myZipkin</module>
-        <module>myJFinal</module>
-        <module>myHessionServer</module>
-        <module>myHessionClient</module>
-        <module>myRocketMQ</module>
-        <module>myMqttV3</module>
-        <module>myMqttV5</module>
-        <module>myNetty</module>
-        <module>myLombok</module>
-        <module>myHTML</module>
-        <module>myJavaAgent</module>
-        <module>myTest</module>
-        <module>myNacosServer</module>
-        <module>myNacosClient</module>
-        <module>myWeb</module>
-        <module>myYaml</module>
-        <module>myTcc</module>
-        <module>mySeataSaga</module>
-        <module>myShardingSphere</module>
-        <module>myWebFlux</module>
-        <module>myReactor</module>
-        <module>myCoap</module>
+<!--        <module>myKafka</module>-->
+<!--        <module>myZipkin</module>-->
+<!--        <module>myJFinal</module>-->
+<!--        <module>myHessionServer</module>-->
+<!--        <module>myHessionClient</module>-->
+<!--        <module>myRocketMQ</module>-->
+<!--        <module>myMqttV3</module>-->
+<!--        <module>myMqttV5</module>-->
+<!--        <module>myNetty</module>-->
+<!--        <module>myLombok</module>-->
+<!--        <module>myHTML</module>-->
+<!--        <module>myJavaAgent</module>-->
+<!--        <module>myTest</module>-->
+<!--        <module>myNacosServer</module>-->
+<!--        <module>myNacosClient</module>-->
+<!--        <module>myWeb</module>-->
+<!--        <module>myYaml</module>-->
+<!--        <module>myTcc</module>-->
+<!--        <module>mySeataSaga</module>-->
+<!--        <module>myShardingSphere</module>-->
+<!--        <module>myWebFlux</module>-->
+<!--        <module>myReactor</module>-->
+<!--        <module>myCoap</module>-->
         <module>myMyBatisPlus</module>
-        <module>mySwagger</module>
-        <module>myJSqlParser</module>
-        <module>myFeignClient</module>
-        <module>myBeanMain</module>
-        <module>myBeanBranch</module>
+<!--        <module>mySwagger</module>-->
+<!--        <module>myJSqlParser</module>-->
+<!--        <module>myFeignClient</module>-->
+<!--        <module>myBeanMain</module>-->
+<!--        <module>myBeanBranch</module>-->
         <module>myJWT</module>
-        <module>mySpringSecurity</module>
-        <module>myElasticSearch</module>
+<!--        <module>mySpringSecurity</module>-->
+<!--        <module>myElasticSearch</module>-->
+<!--        <module>myProtobuf</module>-->
+<!--        <module>myTest2</module>-->
+<!--        <module>myTest3</module>-->
+        <module>myJPA</module>
     </modules>
 
     <properties>
@@ -151,6 +155,27 @@
             <dependency>
                 <groupId>com.chz</groupId>
                 <artifactId>myJavaAgent</artifactId>
+                <version>${project.version}</version>
+                <scope>compile</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.chz</groupId>
+                <artifactId>myTest1</artifactId>
+                <version>${project.version}</version>
+                <scope>compile</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.chz</groupId>
+                <artifactId>myTest2</artifactId>
+                <version>${project.version}</version>
+                <scope>compile</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.chz</groupId>
+                <artifactId>myTest3</artifactId>
                 <version>${project.version}</version>
                 <scope>compile</scope>
             </dependency>
