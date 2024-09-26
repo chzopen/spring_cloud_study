@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.concurrent.Executors;
 
 @Slf4j
 @RestController
@@ -23,6 +24,10 @@ public class TestController {
     public String getUser(HttpServletRequest request) {
         String user = (String) request.getSession().getAttribute("user");
         return user;
+    }
+
+    public static void main(String[] args) {
+        
     }
 
 }

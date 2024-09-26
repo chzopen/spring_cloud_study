@@ -55,6 +55,7 @@
 <!--        <module>myTest2</module>-->
 <!--        <module>myTest3</module>-->
         <module>myJPA</module>
+        <module>myWebservice</module>
     </modules>
 
     <properties>
