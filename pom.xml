@@ -31,7 +31,8 @@
 <!--        <module>myLombok</module>-->
 <!--        <module>myHTML</module>-->
 <!--        <module>myJavaAgent</module>-->
-<!--        <module>myTest</module>-->
+        <module>myTest</module>
+        <module>myTest2</module>
 <!--        <module>myNacosServer</module>-->
 <!--        <module>myNacosClient</module>-->
 <!--        <module>myWeb</module>-->
@@ -52,10 +53,9 @@
 <!--        <module>mySpringSecurity</module>-->
 <!--        <module>myElasticSearch</module>-->
 <!--        <module>myProtobuf</module>-->
-<!--        <module>myTest2</module>-->
-<!--        <module>myTest3</module>-->
         <module>myJPA</module>
         <module>myWebservice</module>
+        <module>mySpringBootTest</module>
     </modules>
 
     <properties>
@@ -174,12 +174,6 @@
                 <scope>compile</scope>
             </dependency>
 
-            <dependency>
-                <groupId>com.chz</groupId>
-                <artifactId>myTest3</artifactId>
-                <version>${project.version}</version>
-                <scope>compile</scope>
-            </dependency>
 
             <dependency>
                 <groupId>com.chz</groupId>

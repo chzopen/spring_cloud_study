@@ -12,4 +12,9 @@ public class MyJPATest {
     public static void main(String[] args) {
         SpringApplication.run(MyJPATest.class, args);
     }
+
+    public void ddd()
+    {
+        
+    }
 }
